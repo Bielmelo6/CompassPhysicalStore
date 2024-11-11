@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const uri = "mongodb+srv://gabrielmelodemenezes:admin@apicluster.qvgzt4v.mongodb.net/";
+const uri = `mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@apicluster.qvgzt4v.mongodb.net/`;
 const client = new MongoClient(uri);
 
 export const exportDataBase = async () => {
@@ -19,5 +19,4 @@ export const exportDataBase = async () => {
 
 export const closeMongoConnection = async () => {
   await client.close();
-  console.log('Conexão com MongoDB encerrada');
 };
